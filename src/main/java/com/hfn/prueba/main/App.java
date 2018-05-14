@@ -6,10 +6,7 @@ import java.util.Collection;
 import com.hfn.prueba.VOs.Operador;
 import com.hfn.prueba.callCenter.CallCenter;
 
-/**
- * Hello world!
- *
- */
+
 public class App 
 {
 	 public static void main( String[] args )
