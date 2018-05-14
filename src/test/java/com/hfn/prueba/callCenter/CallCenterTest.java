@@ -89,7 +89,7 @@ public class CallCenterTest extends TestCase {
 	   public void testRecibirLlamadasConcurrentes() {
 		         CallCenter cc=new CallCenter();
 		         cc.setConectados(usuariosConectados);
-		         cc.setNumeroLlamadasConcurrentes(20);
+		         cc.setNumeroLlamadasConcurrentes(10);
 		         cc.recibirLlamadasConcurrentes();
 		          assertTrue(cc.isFinalOperacionCall());
 		          
