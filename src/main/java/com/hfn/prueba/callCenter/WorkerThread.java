@@ -8,19 +8,32 @@ import com.hfn.prueba.VOs.Llamada;
 public class WorkerThread implements Runnable {
 	  
     private String command;
-    Dispatcher dispatcher;
+    private Dispatcher dispatcher;
+    private Llamada call;
     
-    public WorkerThread(String s,Dispatcher d){
-        this.command=s;
-        this.dispatcher=d;
+	/**
+	 * Constructor de la clase
+	 * @param command  numero de la llamada la cual se convertira en su id
+	 * @param Dispatcher 
+	 * @param entrante llamada a gestionar
+	 */
+    public WorkerThread(String command,Dispatcher dispatcher, Llamada  entrante){
+        this.command=command;
+        this.dispatcher=dispatcher;
+        this.call=entrante;
     }
-
+    
+	/**
+	 * Metodo que ejecuta el thread
+	 */
     public void run() {
       //  System.out.println(Thread.currentThread().getName()+" Start. Command = "+command);
         processCommand();
     //    System.out.println(Thread.currentThread().getName()+" End.");
     }
-
+	/**
+	 * Metodo que procesa la llamada del thread
+	 */
     private void processCommand() {
         try {
         	Llamada call=new Llamada();
@@ -35,7 +48,7 @@ public class WorkerThread implements Runnable {
         		dispatcher.liberarOperador(call.getIdOperador());
         		
         	}else{
-        		System.out.println("LLAMADA PERDIDA: "+call.getId());
+        		System.out.println("LLAMADA ENCOLADA: "+call.getId());
         	}
             call.setHoraFin(LocalDate.now());
         } catch (InterruptedException e) {

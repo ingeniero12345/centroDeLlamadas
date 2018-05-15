@@ -7,19 +7,32 @@ import java.util.Iterator;
 import com.hfn.prueba.VOs.Llamada;
 import com.hfn.prueba.VOs.Operador;
 
+/**
+ * Esta clase gestiona la llamada y el operador asignado
+ * @author: Hernan Felipe Nieto
+ * @version: 1
+ */
 public class Dispatcher  {
 	
 	/**
 	 * Operadores conectaodos en la operacion
 	 */
     public Collection<Operador> conectados;
+    
+	/**
+	 * Almacena las llamadas que no se contestaron
+	 */    
+    private Collection<Llamada> llamadasNoContestadas;
 	
-    /**
+
+
+	/**
 	 * Constructor de la clase
 	 * @param operadores conectados en el callCenter
 	 */
     public Dispatcher(Collection<Operador> operadores){
     	this.conectados=operadores;
+    	this.llamadasNoContestadas = new ArrayList<Llamada>();
     }
     
     /**
@@ -35,6 +48,7 @@ public class Dispatcher  {
 			call.setIdOperador(disponible.getId());
 		}else{
 			call.setEstado("perdida");
+			llamadasNoContestadas.add(call);
 		}
     	return call;
     }
@@ -70,8 +84,8 @@ public class Dispatcher  {
 	
 	
 	/**
-	  * Obtiene el operador disponible buscando primero por operadores, despues
-	  * busca por supervisores y finalmente en directores
+	  * Obtiene el operador disponible buscando primero por operadores(3), despues
+	  * busca por supervisores(2) y finalmente en directores(1)
 	  */
 	 public Operador obtenerDisponible(){
 		 Iterator<Operador> it= conectados.iterator();
@@ -104,7 +118,12 @@ public class Dispatcher  {
 					}
 				}
 			}
-				
-		 
 	 }
+	    public Collection<Llamada> getLlamadasNoContestadas() {
+			return llamadasNoContestadas;
+		}
+
+		public void setLlamadasNoContestadas(Collection<Llamada> llamadasNoContestadas) {
+			this.llamadasNoContestadas = llamadasNoContestadas;
+		}
 }

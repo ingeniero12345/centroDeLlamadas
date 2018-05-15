@@ -18,6 +18,9 @@ public class App
 	    	s.recibirLlamadasConcurrentes();
 	    }
 	 
+		/**
+		 * Metodo que carga operadores de diferentes roles
+		 */
 	    public  Collection<Operador> conectarUsuarios(){
 	    	Operador operador1=new Operador();
 	    	Operador operador2=new Operador();
