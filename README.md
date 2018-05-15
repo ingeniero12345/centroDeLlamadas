@@ -10,16 +10,27 @@ Que por su descripción gestionan llamadas concurrentes las cuales al no poder c
 para que posteriormente se procesen (queden en estado "contestada").
 
 
+
 Requerimientos
+
 Debe existir una clase Dispatcher encargada de manejar las llamadas, y debe contener el método dispatchCall para que las
 asigne a los empleados disponibles.(Alcanzado). 
+
 El método dispatchCall puede invocarse por varios hilos al mismo tiempo.(Alcanzado). 
+
 La clase Dispatcher debe tener la capacidad de poder procesar 10 llamadas al mismo tiempo (de modo concurrente).(Alcanzado). 
+
 Cada llamada puede durar un tiempo aleatorio entre 5 y 10 segundos. (Alcanzado). 
+
 Debe tener un test unitario donde lleguen 10 llamadas. (Alcanzado). 
 
+
 Extras/Plus
+
 Dar alguna solución sobre qué pasa con una llamada cuando no hay ningún empleado libre.(Alcanzado). 
+
 Dar alguna solución sobre qué pasa con una llamada cuando entran más de 10 llamadas concurrentes.(Alcanzado). 
+
 Agregar los tests unitarios que se crean convenientes.(Alcanzado). 
+
 Agregar documentación de código(Alcanzado).
