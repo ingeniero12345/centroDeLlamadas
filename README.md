@@ -1,13 +1,14 @@
 # centroDeLlamadas
 En este proyecto se encuentran basicamente e clases qu administran el callCenter WorkerThread,CallCenter y Dispatcher
+
 En la WorkerThread se define la funcion de cada hilo (operador) con una llamada.
+
 En la clase Dispatcher se gestiona llamada asignandoles el operador para que la conteste y modificacondo propiedades tanto de
 la llamada como de el operador (por ejemplo el operador tiene un estado de "disponible" o "Ocupado"). En caso de que no 
 existan operadores diponibles en ese instante la llamada queda en estado "encolada" y se almacena en una lista.
+
 En la clase CallCenter se definen 2 metodos principales para el funcionamiento del callcenter que son recibirLlamadasConcurrentes
-y procesarEncoladas
-Que por su descripción gestionan llamadas concurrentes las cuales al no poder contestadas por falta de operadores quedan encoladas
-para que posteriormente se procesen (queden en estado "contestada").
+y procesarEncoladas que por su descripción gestionan llamadas concurrentes las cuales al no poder contestadas por falta de operadores quedan encoladas para que posteriormente se procesen (queden en estado "contestada").
 
 
 
